@@ -1,5 +1,4 @@
 from pathlib import Path
-# import os
 
 class Site():
 
@@ -16,7 +15,3 @@ class Site():
         for path in self.source.rglob("*"):
             if path.is_dir():
                 self.create_dir(path)
-
-
-
-
