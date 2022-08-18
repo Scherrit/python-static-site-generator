@@ -18,8 +18,5 @@ class Site():
                 self.create_dir(path)
 
 
-# test = Site("C:\temp\source", "C:\temp\test")
-# test.create_dir("C:\temp\another")
-
 
 
