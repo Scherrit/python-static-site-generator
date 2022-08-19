@@ -1,7 +1,7 @@
 from pathlib import Path
 
-class Site():
 
+class Site:
     def __init__(self, source, dest, parsers=None):
         self.source = Path(source)
         self.dest = Path(dest)
@@ -13,7 +13,7 @@ class Site():
 
     def load_parser(self, extension):
         for parser in self.parsers:
-            if extension.valid_extension(extension):
+            if parser.valid_extension(extension):
                 return parser
 
     def run_parser(self, path):
@@ -30,4 +30,3 @@ class Site():
                 self.create_dir(path)
             elif path.is_file():
                 self.run_parser(path)
-
