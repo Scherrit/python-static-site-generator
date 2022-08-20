@@ -3,8 +3,9 @@ import re
 from collections.abc import Mapping
 from yaml import load, FullLoader
 
+
 class Content(Mapping):
-    __delimiter = "^(?:-|\+){3}\s*$"
+    __delimiter = r"^(?:-|\+){3}\s*$"
     __regex = re.compile(__delimiter, re.MULTILINE)
 
     @classmethod
@@ -13,7 +14,7 @@ class Content(Mapping):
         metadata = load(fm, Loader=FullLoader)
         return cls(metadata, content)
 
-    def __int__(self, metadata, content):
+    def __init__(self, metadata, content):
         self.data = metadata
         self.data["content"] = content
 
@@ -44,7 +45,3 @@ class Content(Mapping):
             if key != "content":
                 data[key] = value
         return str(data)
-
-
-
-
